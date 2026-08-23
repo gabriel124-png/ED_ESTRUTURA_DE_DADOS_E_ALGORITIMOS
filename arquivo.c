@@ -25,16 +25,13 @@ void lerFilmes(){
         if(token != NULL) strcpy(passcinema.filme, token);
 
         token = strtok(NULL, ";");
-        if(token != NULL) passcinema.sala = atoi(token);
-
-        token = strtok(NULL, ";");
         if(token != NULL) strcpy(passcinema.horario, token);
 
         token = strtok(NULL, ";");
         if(token != NULL) passcinema.preco = atof(token);
 
-        printf("Filme: %-40s Sala: %d  Horario: %s  Preco: R$ %.2f\n",
-               passcinema.filme, passcinema.sala, passcinema.horario, passcinema.preco);
+        printf("Filme: %-40s  Horario: %s  Preco: R$ %.2f\n",
+               passcinema.filme, passcinema.horario, passcinema.preco);
     }
 
     fclose(leitor);
@@ -59,9 +56,6 @@ int carregarFilmes(Ingresso filmes[], int max){
         if(token != NULL) strcpy(filmes[contador].filme, token);
 
         token = strtok(NULL, ";");
-        if(token != NULL) filmes[contador].sala = atoi(token);
-
-        token = strtok(NULL, ";");
         if(token != NULL) strcpy(filmes[contador].horario, token);
 
         token = strtok(NULL, ";");
@@ -77,6 +71,7 @@ int carregarFilmes(Ingresso filmes[], int max){
 int carregarClientes(Cliente clientes[], int max){
     FILE *leitor;
     char linha[MAX_NOMES];
+    char *token;
     int contador = 0;
 
     leitor = fopen("dados_do_cinema/clientes.txt", "r");
@@ -85,13 +80,18 @@ int carregarClientes(Cliente clientes[], int max){
         return 0;
     }
 
-    while(fgets(linha, sizeof(linha), leitor) != NULL && contador < max){
-        linha[strcspn(linha, "\r\n")] = '\0';
-        if(strlen(linha) > 0){
-            strcpy(clientes[contador].nome, linha);
-            contador++;
-        }
-    }
+	    while(fgets(linha, sizeof(linha), leitor) != NULL && contador < max){
+	    linha[strcspn(linha, "\r\n")] = '\0';
+	    if(strlen(linha) == 0) continue;   /* pula linha vazia */
+	    token = strtok(linha, ";");                 // 1ª vez: passa a linha
+	    if(token != NULL) strcpy(clientes[contador].nome, token);
+	    token = strtok(NULL, ";");                  // 2ª vez: passa NULL
+	    if(token != NULL) clientes[contador].idade = atoi(token);
+	    token = strtok(NULL, ";");                  // 3ª vez: passa NULL
+	    if(token != NULL) clientes[contador].genero = token[0];
+
+	    contador++;
+	}
 
     fclose(leitor);
     return contador;

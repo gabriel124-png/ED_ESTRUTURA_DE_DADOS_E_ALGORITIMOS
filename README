@@ -1,0 +1,86 @@
+CINEMA BARONI
+
+Sistema desenvolvido para 1-Estudo Dirigido de Estrutura de Dados e Algoritimos - 2026/2 sobre a orientação do professor 
+Luiz Baroni.
+
+ENUNCIADO DO TRABALHO:
+
+Você é o responsável pelo sistema de venda de ingressos do cinime. O sistema funciona da seguinte maneira: Cada cliente
+que chega para compraringressos é adicionado a uma fila. Há uma pilha de ingressos que serão entregues aos clientes.
+QUANDO o cliente compra seu ingresso, ele é removido da fila, e recebe um ingresso da pilha. Um ingresso dentro do sis-
+tema armazena: Nome do Filme, Sala de Exibição, Horário da Sessão, e Preço do ingresso:
+Seu trabalho será implementar esse sistema de gerenciamento de filas e pilhas usando Vetores em Linguagem C.
+
+Deverá implementar:
+Struct Ingresso: Nome do Filme, Sala de Exibição, Horário da Sessão, e Preço do ingresso.
+Struct Cliente: Nome do Cliente, Idade, e Struct Ingresso.
+Estruturas de Fila para os Clientes, e Pilhas que armazenam Ingressos.
+Funções de inserção: Empilha, Enfileira:
+
+De remoção:
+Desempilha, Desenfileira:
+
+E de busca:
+Em filas(Circulares) e Pilhas implementadas em vetores:
+Implementação de uma interface de texto simples para escolher entre as opções disponíveis:
+Opção para precencher automaticamente a Fila de compra com Clientes, e as Pilhas com Ingressos:
+Opção para Vender Ingresso:
+Opção para imprimir na tela qualquer uma das filas, e qualquer uma daspilhas:
+
+Como deve funcionar:
+Uma fila de Clientes, preenchida automaticamente através de uma opção;
+Pelo menos 3 Pilhas de ingressos, para 3 filmes diferentes;
+E uma Fila de Exibição para cada filme.
+
+Vender ingresso:
+Escolha um filme;
+Retire um ingresso da Pilha desse filme e entregue para o 1 Cliente da fila;
+Retire o Cliente da Fila inicial e mostre na tela o par: Cliente->Ingresso;
+Enfileire o Cliente na Fila referente a Sala de Exibição do filme comprado;
+Faça até não ter mais clientes na Fila inicial;
+
+DESCRIÇÃO DO PROJETO:
+
+O projeto simula um sistema de gerenciamento de um cinema fictício.
+
+ESTRUTURA E ARQUIVOS DO PROJETO:
+
+main.c:
+A interface do projeto (UX) e arquivo principal do projeto.
+
+arquivo.h:
+Declaração das funções relacionadas aos arquivos no sistema, sendo Clientes.txt onde possui nome, idade e gênero e
+Filmes.txt contendo os filmes, horario e preço dos ingressos.
+
+arquivo.c:
+Execução das funções dos arquivos Clientes.txt e Filmes.txt onde pode ser execuado de duas maneiras ler os arquivos
+ou ler e carregar os arquivos na memoria.
+
+random.h:
+Declaração das funções de pseudo-aleatorio e regras da seleção das salas, filmes e horarios.
+
+random.c
+Execução do random.h utilizando como base um codigo tutorial de Fisher-Yates e randomização dos filmes e distribuição
+identica de filmes entre as salas sem causar conflito de sala e horario dos filmes.
+
+Clientes.txt
+Arquivo usado para guardar os dados dos clientes para carregar na memoria.
+
+Filmes.txt
+Arquivo usado para guardar os dados dos filmes para carregar na memoria.
+
+STATUS
+
+Em desenvolvimento.
+
+FERRAMENTAS UTILIZADAS
+
+gcc e nano do terminal linux.
+
+COMO COMPILAR
+
+gcc main.c arquivo.c random.c -o cinema
+
+COMO EXECUTAR
+
+./cinema

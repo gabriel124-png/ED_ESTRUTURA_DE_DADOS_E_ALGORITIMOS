@@ -1,50 +1,50 @@
-Gabriel
-Maria
-João
-Ana
-Pedro
-Lucas
-Julia
-Carlos
-Fernanda
-Bruno
-Camila
-Rafael
-Patricia
-Marcos
-Beatriz
-Ricardo
-Amanda
-Gustavo
-Larissa
-Felipe
-Carolina
-Diego
-Isabela
-Matheus
-Renata
-Thiago
-Vanessa
-Leonardo
-Bianca
-Eduardo
-Natália
-Vinicius
-Paula
-André
-Aline
-Henrique
-Sofia
-Rodrigo
-Luana
-Caio
-Gabriela
-Daniel
-Letícia
-Murilo
-Yasmin
-Igor
-Melissa
-Arthur
-Helena
-Samuel
+Gabriel Silva;24;M
+Maria Santos;31;F
+João Oliveira;45;M
+Ana Souza;19;F
+Pedro Rodrigues;52;M
+Lucas Ferreira;27;M
+Julia Alves;22;F
+Carlos Pereira;60;M
+Fernanda Lima;35;F
+Bruno Gomes;29;M
+Camila Costa;41;F
+Rafael Ribeiro;33;M
+Patricia Martins;48;F
+Marcos Carvalho;38;M
+Beatriz Almeida;20;F
+Ricardo Lopes;55;M
+Amanda Soares;26;F
+Gustavo Fernandes;44;M
+Larissa Vieira;30;F
+Felipe Barbosa;23;M
+Carolina Rocha;37;F
+Diego Dias;50;M
+Isabela Nascimento;18;F
+Matheus Andrade;28;M
+Renata Moreira;42;F
+Thiago Nunes;34;M
+Vanessa Marques;25;F
+Leonardo Machado;58;M
+Bianca Mendes;21;F
+Eduardo Freitas;46;M
+Natália Cardoso;32;F
+Vinicius Ramos;27;M
+Paula Gonçalves;39;F
+André Santana;53;M
+Aline Teixeira;24;F
+Henrique Correia;61;M
+Sofia Batista;19;F
+Rodrigo Cavalcante;36;M
+Luana Pinto;28;F
+Caio Araujo;22;M
+Gabriela Castro;40;F
+Daniel Campos;31;M
+Letícia Cunha;26;F
+Murilo Melo;49;M
+Yasmin Monteiro;20;F
+Igor Moura;33;M
+Melissa Farias;27;F
+Arthur Duarte;57;M
+Helena Xavier;35;F
+Samuel Peixoto;43;M
