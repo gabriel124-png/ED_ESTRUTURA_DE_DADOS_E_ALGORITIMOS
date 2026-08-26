@@ -52,14 +52,17 @@ int carregarFilmes(Ingresso filmes[], int max){
     while(fgets(linha, sizeof(linha), leitor) != NULL && contador < max){
         linha[strcspn(linha, "\r\n")] = '\0';
 
-        token = strtok(linha, ";");
+        token = strtok(linha, ";"); // Pega o nome do filme do arquivo.
         if(token != NULL) strcpy(filmes[contador].filme, token);
 
-        token = strtok(NULL, ";");
+        token = strtok(NULL, ";");  // Pega o horario da sala do arquivo.
         if(token != NULL) strcpy(filmes[contador].horario, token);
 
-        token = strtok(NULL, ";");
+        token = strtok(NULL, ";"); // Pega o preco do ingresso do arquivo.
         if(token != NULL) filmes[contador].preco = atof(token);
+
+	token = strtok(NULL, ";"); // Pega a duracao do filme do arquivo.
+	if(token != NULL) filmes[contador].duracao = atoi(token);
 
         contador++;
     }
@@ -82,12 +85,12 @@ int carregarClientes(Cliente clientes[], int max){
 
 	    while(fgets(linha, sizeof(linha), leitor) != NULL && contador < max){
 	    linha[strcspn(linha, "\r\n")] = '\0';
-	    if(strlen(linha) == 0) continue;   /* pula linha vazia */
-	    token = strtok(linha, ";");                 // 1ª vez: passa a linha
+	    if(strlen(linha) == 0) continue;
+	    token = strtok(linha, ";"); // pega o nome do cliente do arquivo.
 	    if(token != NULL) strcpy(clientes[contador].nome, token);
-	    token = strtok(NULL, ";");                  // 2ª vez: passa NULL
+	    token = strtok(NULL, ";"); // pega a idade do arquivo.
 	    if(token != NULL) clientes[contador].idade = atoi(token);
-	    token = strtok(NULL, ";");                  // 3ª vez: passa NULL
+	    token = strtok(NULL, ";"); // Pega o genero do arquivo.
 	    if(token != NULL) clientes[contador].genero = token[0];
 
 	    contador++;

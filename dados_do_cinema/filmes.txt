@@ -1,25 +1,25 @@
-Avatar: O Caminho da Água;18:00;35.00
-Superman;19:30;30.00
-Minecraft;20:00;28.00
-Deadpool & Wolverine;20:30;38.00
-Jurassic World;21:00;36.00
-Divertida Mente 2;17:30;25.00
-Missão: Impossível - Acerto Final;22:00;40.00
-Como Treinar o Seu Dragão;16:00;26.00
-Lilo & Stitch;15:30;24.00
-F1;19:00;34.00
-Quarteto Fantástico;20:15;37.00
-Thunderbolts;18:45;33.00
-Capitão América: Admirável Mundo Novo;21:30;36.00
-Moana 2;17:00;27.00
-Mufasa: O Rei Leão;16:30;29.00
-Sonic 3;15:00;26.00
-Transformers One;19:45;32.00
-Godzilla x Kong;21:15;35.00
-Venom: A Última Rodada;22:30;38.00
-Gladiador II;20:00;39.00
-O Auto da Compadecida 2;18:30;30.00
-Nosferatu;23:00;34.00
-Branca de Neve;16:30;28.00
-Elio;17:15;27.00
-Wicked;19:15;36.00
+Avatar: O Caminho da Água;18:00;35.00;192
+Superman;19:30;30.00;129
+Minecraft;20:00;28.00;101
+Deadpool & Wolverine;20:30;38.00;108
+Jurassic World;21:00;36.00;124
+Divertida Mente 2;17:30;25.00;95
+Missão: Impossível - Acerto Final;22:00;40.00;169
+Como Treinar o Seu Dragão;16:00;26.00;125
+Lilo & Stitch;15:30;24.00;108
+F1;19:00;34.00;155
+Quarteto Fantástico;20:15;37.00;114
+Thunderbolts;18:45;33.00;126
+Capitão América: Admirável Mundo Novo;21:30;36.00;119
+Moana 2;17:00;27.00;107
+Mufasa: O Rei Leão;16:30;29.00;118
+Sonic 3;15:00;26.00;99
+Transformers One;19:45;32.00;104
+Godzilla x Kong;21:15;35.00;113
+Venom: A Última Rodada;22:30;38.00;109
+Gladiador II;20:00;39.00;148
+O Auto da Compadecida 2;18:30;30.00;104
+Nosferatu;23:00;34.00;132
+Branca de Neve;16:30;28.00;109
+Elio;17:15;27.00;98
+Wicked;19:15;36.00;160

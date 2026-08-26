@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -16,18 +17,30 @@ static void embaralharFilmes(Ingresso filmes[], int total){/* algoritimo fisher 
 	}
 }
 
+static int horarioparaminuto(char horario[]){
+	int hora, minuto;
+	sscanf(horario, "%d:%d", &hora, &minuto);
+	return hora * 60 + minuto; // converte hora em minutos.
+}
+static int conflitodehorario(int inicio1, int inicio2, int fim1, int fim2){
+	return (inicio1 < fim2) && (inicio2 < fim1); // impede a sobreposicao de horario.
+}
+
 void distribuirFilmes(Ingresso filmes[], int totalFilmes){
 	embaralharFilmes(filmes, totalFilmes);
 	int porSala = totalFilmes / MAX_SALAS;
 	int quantSala [MAX_SALAS] = {0};
-	char horarioSala[MAX_SALAS][MAX_QTD_FILMES][10];
+	int inicioSala[MAX_SALAS][MAX_QTD_FILMES];
+	int fimSala[MAX_SALAS][MAX_QTD_FILMES];
 	for(int i=0; i<totalFilmes; i++){
-	   int colocado =0;
+	    int colocado =0;
+	    int inicioNovo = horarioparaminuto(filmes[i].horario);
+	    int fimNovo = inicioNovo + filmes[i].duracao;
 		for(int s=0; s< MAX_SALAS && !colocado; s++){
 			if(quantSala[s] >= porSala) continue; /* verificar conflitos de horario na sala */
 			int conflito =0;
 			for(int h=0; h  < quantSala[s]; h++){
-				if(strcmp(horarioSala[s][h], filmes[i].horario)==0){
+				if(conflitodehorario(inicioNovo, inicioSala[s][h], fimNovo, fimSala[s][h])){
 					conflito =1; // variavel de controle dentro da condição.
 					break;
 				}
@@ -36,10 +49,26 @@ void distribuirFilmes(Ingresso filmes[], int totalFilmes){
 
 			filmes[i].sala = s + 1;
 			filmes[i].amanha = 0;
-			strcpy(horarioSala[s][quantSala[s]], filmes[i].horario); // guarda o horario do filme.
+			inicioSala[s][quantSala[s]] = inicioNovo; // guarda os horarios de inicio dos filmes.
+			fimSala[s][quantSala[s]] = fimNovo; // guarda os horarios do fim dos filmes.
 			quantSala[s]++;
 			colocado = 1;
 		}
+		for(int a =0; a<totalFilmes-1; a++){/* inicio do laco e condicoes do bublle sort */
+				int mesmaSala;
+				for(int b =0; b<totalFilmes-1-a; b++){
+					int salabb = filmes[b+1].sala;
+					int salab = filmes[b].sala;
+					int trocafora = salab > salabb; // troca o filme  por outro de fora da sala.
+					int trocadentro = salab < salabb; // troca o filme por outro dentro da sala.
+					int trocaporhorario = horarioparaminuto(filmes[b].horario) > horarioparaminuto(filmes[b+1].horario);
+					if(trocafora || trocaporhorario){/* aqui comeca o bublle sort dessa funcao */
+						Ingresso tmp = filmes[b];
+						filmes[b] = filmes[b+1];
+						filmes[b+1] = tmp;
+					}
+				}
+			}
 		if(!colocado){
 			filmes[i].sala =0;
 			filmes[i].amanha =1;

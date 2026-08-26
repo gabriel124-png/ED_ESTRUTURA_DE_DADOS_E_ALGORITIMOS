@@ -15,6 +15,7 @@ typedef struct Ingresso{
     int sala;
     int amanha;
     char horario[10];
+    int duracao;
     float preco;
 }Ingresso;
 

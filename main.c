@@ -15,8 +15,8 @@ int main(){
     do{
         printf("\n===RECEPCAO===\n");
 	printf("5 - (nao implementado)\n");
-	printf("4 - Verificar a fila(nao implementedo)\n");
-        printf("3 - Verificar salas(nao implementado)\n");
+	printf("4 - Verificar a fila(nao implementado)\n");
+        printf("3 - Verificar sala do filme\n");
         printf("2 - Listar clientes\n");
         printf("1 - Listar filmes\n");
         printf("0 - Sair do cinema Baroni\n");
@@ -24,19 +24,21 @@ int main(){
         switch (op)
         {
         case 3:
-            /*if(totalFilmes > 0 && totalClientes > 0){
-                Ingresso filmeSorteado = sortearFilme(filmes, totalFilmes);
-                Cliente clienteSorteado = sortearCliente(clientes, totalClientes);
-                printf("\n=== INGRESSO SORTEADO ===\n");
-                printf("Cliente: %s\n", clienteSorteado.nome);
-                printf("Filme:   %s\n", filmeSorteado.filme);
-                printf("Sala:    %d\n", filmeSorteado.sala);
-                printf("Horario: %s\n", filmeSorteado.horario);
-                printf("Preco:   R$ %.2f\n", filmeSorteado.preco);
-            } else {
-                printf("Nao ha filmes ou clientes carregados no sistema para sortear.\n");
+            for(int i =0; i<MAX_SALAS; i++){
+                printf("\n=== Sala: %d ===\n", i+1);
+                for(int j =0; j<totalFilmes; j++){
+                    if(filmes[j].sala == i+1){
+                        printf(" %s (%s)\n", filmes[j].filme, filmes[j].horario);
+                    }
+                }
             }
-            break;*/
+            printf("\n=== Filmes adiados para amanha ===\n");
+       	     for(int j=0; j<totalFilmes; j++){
+                if(filmes[j].amanha == 1){
+                    printf(" %s (%s)\n", filmes[j].filme, filmes[j].horario);
+                }
+            }
+        break;
         case 2:
             printf("=====Mostrar clientes no cinema=====\n");
 		for(int i =0; i<totalClientes; i++){
@@ -48,20 +50,23 @@ int main(){
 				printf("Feminino\n\n");
 			}
 		}
-            break;
+        break;
         case 1:
             printf("=====Mostrar filmes e horarios=====\n");
 		for(int i =0; i<totalFilmes; i++){
 			printf("Filmes: %s\n", filmes[i].filme);
+			if(filmes[i].amanha == 0){
+				printf("Sala: %d\n", filmes[i].sala);
+			}else{
+				printf("Tem horario para amanha\n");
+			}
 			printf("Horario: %s\n", filmes[i].horario);
 			printf("Preco: R$%.2f\n\n", filmes[i].preco);
 		}
-            break;
-
+        break;
         case 0:
             printf("Saida\n");
             break;
-
         default:
             printf("Não existe esse caminho no cinema Baroni\n");
             break;
