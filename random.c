@@ -54,7 +54,12 @@ void distribuirFilmes(Ingresso filmes[], int totalFilmes){
 			quantSala[s]++;
 			colocado = 1;
 		}
-		for(int a =0; a<totalFilmes-1; a++){/* inicio do laco e condicoes do bublle sort */
+		if(!colocado){
+			filmes[i].sala =0;
+			filmes[i].amanha =1;
+		}
+	}
+	for(int a =0; a<totalFilmes-1; a++){/* inicio do laco e condicoes do bublle sort */
 				int mesmaSala;
 				for(int b =0; b<totalFilmes-1-a; b++){
 					int salabb = filmes[b+1].sala;
@@ -69,9 +74,4 @@ void distribuirFilmes(Ingresso filmes[], int totalFilmes){
 					}
 				}
 			}
-		if(!colocado){
-			filmes[i].sala =0;
-			filmes[i].amanha =1;
-		}
-	}
 }

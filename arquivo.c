@@ -52,6 +52,9 @@ int carregarFilmes(Ingresso filmes[], int max){
     while(fgets(linha, sizeof(linha), leitor) != NULL && contador < max){
         linha[strcspn(linha, "\r\n")] = '\0';
 
+	filmes[contador].sala =0;  /* iniciando no while o .sala */
+	filmes[contador].amanha =0;/* iniciando no while o .amanha */
+
         token = strtok(linha, ";"); // Pega o nome do filme do arquivo.
         if(token != NULL) strcpy(filmes[contador].filme, token);
 
