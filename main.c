@@ -2,6 +2,7 @@
 #include <string.h>
 #include "arquivo.h"
 #include "random.h"
+#include "pilha.h"
 
 int main(){
     int op;
@@ -11,11 +12,14 @@ int main(){
     int totalFilmes = carregarFilmes(filmes, MAX_QTD_FILMES);
     int totalClientes = carregarClientes(clientes, MAX_QTD_CLIENTES);
     distribuirFilmes(filmes, totalFilmes);
+    PilhaEst pilhaIngressos;
+    inicializaPilha(&pilhaIngressos);
+    gerarIngressos(filmes, totalFilmes, totalClientes, &pilhaIngressos);
 
     do{
         printf("\n===RECEPCAO===\n");
-	printf("5 - (nao implementado)\n");
-	printf("4 - Verificar a fila(nao implementado)\n");
+	printf("5 - Verificar fila(nao implementado)\n");
+	printf("4 - Verificar a fila\n");
         printf("3 - Verificar sala do filme\n");
         printf("2 - Listar clientes\n");
         printf("1 - Listar filmes\n");
@@ -23,6 +27,12 @@ int main(){
         scanf("%d",&op);
         switch (op)
         {
+	case 4:
+		for(int i= pilhaIngressos.topo; i>=0;i--){
+			int control = pilhaIngressos.itens[i];
+			printf(" %s (%s) - Sala %d\n",filmes[control].filme, filmes[control].horario, filmes[control].sala );
+		}
+	break;
         case 3:
             for(int i =0; i<MAX_SALAS; i++){
                 printf("\n=== Sala: %d ===\n", i+1);

@@ -60,13 +60,12 @@ void distribuirFilmes(Ingresso filmes[], int totalFilmes){
 		}
 	}
 	for(int a =0; a<totalFilmes-1; a++){/* inicio do laco e condicoes do bublle sort */
-				int mesmaSala;
 				for(int b =0; b<totalFilmes-1-a; b++){
 					int salabb = filmes[b+1].sala;
 					int salab = filmes[b].sala;
-					int trocafora = salab > salabb; // troca o filme  por outro de fora da sala.
-					int trocadentro = salab < salabb; // troca o filme por outro dentro da sala.
-					int trocaporhorario = horarioparaminuto(filmes[b].horario) > horarioparaminuto(filmes[b+1].horario);
+					int mesmaSala = salab == salabb; // troca o filme  por outro de fora da sala.
+					int trocafora = salab > salabb; // troca o filme por outro dentro da sala.
+					int trocaporhorario = mesmaSala && horarioparaminuto(filmes[b].horario) > horarioparaminuto(filmes[b+1].horario);
 					if(trocafora || trocaporhorario){/* aqui comeca o bublle sort dessa funcao */
 						Ingresso tmp = filmes[b];
 						filmes[b] = filmes[b+1];
@@ -74,4 +73,24 @@ void distribuirFilmes(Ingresso filmes[], int totalFilmes){
 					}
 				}
 			}
+}
+
+void gerarIngressos(Ingresso filmes[], int totalFilmes, int totalClientes, PilhaEst *pilha){
+	int indice[MAX_QTD_FILMES];
+	int totalHoje =0;
+	for(int i =0; i<totalFilmes; i++){
+		if(filmes[i].amanha ==0){
+			indice[totalHoje] = i;
+			totalHoje ++;
+		}
+	}
+	if(totalHoje == 0){
+		printf("\nNao a filmes para o dia de hoje\n");
+		return ;
+	}
+	for(int c=0; c<totalClientes; c++){
+		int sorteio = rand() % totalHoje;
+		int indiceFilme = indice[sorteio];
+		push(pilha, indiceFilme);
+	}
 }
