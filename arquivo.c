@@ -8,7 +8,7 @@ void lerFilmes(){
     char linha[200];
     char *token;
 
-    leitor = fopen("dados_do_cinema/filmes.txt", "r");
+    leitor = fopen("filmes.txt", "r");
     if(leitor == NULL){
         printf("Erro ao abrir o arquivo de filmes.\n");
         return;
@@ -43,7 +43,7 @@ int carregarFilmes(Ingresso filmes[], int max){
     char *token;
     int contador = 0;
 
-    leitor = fopen("dados_do_cinema/filmes.txt", "r");
+    leitor = fopen("filmes.txt", "r");
     if(leitor == NULL){
         printf("Erro ao abrir o arquivo de filmes.\n");
         return 0;
@@ -80,7 +80,7 @@ int carregarClientes(Cliente clientes[], int max){
     char *token;
     int contador = 0;
 
-    leitor = fopen("dados_do_cinema/clientes.txt", "r");
+    leitor = fopen("clientes.txt", "r");
     if(leitor == NULL){
         printf("Erro ao abrir o arquivo de clientes.\n");
         return 0;
@@ -107,7 +107,7 @@ void lerClientes(){
     FILE *leitor;
     char linha[MAX_NOMES];
 
-    leitor = fopen("dados_do_cinema/clientes.txt", "r");
+    leitor = fopen("clientes.txt", "r");
     if(leitor == NULL){
         printf("Erro ao abrir o arquivo de clientes.\n");
         return;
