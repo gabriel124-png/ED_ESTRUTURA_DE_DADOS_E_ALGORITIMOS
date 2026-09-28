@@ -6,6 +6,7 @@
 
 void inicializarSorteio();
 void distribuirFilmes(Ingresso filmes[], int totalFilmes);
-void gerarIngressos(Ingresso filmes[], int totalFilmes, int totalClientes, PilhaEst *pilha);
+void preencherFilaClientes(FilaCirc *filaEntrada, Cliente clientes[], int totalClientes);
+void preencherPilhasIngressos(PilhaEst pilhas[], Ingresso filmes[], int totalFilmes);
 
 #endif
