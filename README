@@ -63,6 +63,18 @@ random.c
 Execução do random.h utilizando como base um codigo tutorial de Fisher-Yates e randomização dos filmes e distribuição
 identica de filmes entre as salas sem causar conflito de sala e horario dos filmes.
 
+fila.c
+Aplica o avanço circular dos índices através de '% MAX'para poder reaproveitar os espaços no vetor 
+
+fila.h
+Define a constante `MAX_FILA`, a `struct FilaCirc` (com índices de `inicio`, `fim` e `total`) e os protótipos das operações FIFO.
+
+pilha.c
+Implementa o controle do topo manipulando o estoque de infressos
+
+pilha.h
+Define a constante `MAX_PILHA`, a `struct PilhaEst` (com ponteiro de `topo`) e os protótipos das operações LIFO.
+
 Clientes.txt
 Arquivo usado para guardar os dados dos clientes para carregar na memoria.
 
